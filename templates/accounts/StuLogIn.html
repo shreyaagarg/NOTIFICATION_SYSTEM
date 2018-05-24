@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Student Log In {% endblock %}
+
+
+{% block main %}
+
+    <!--Header-->
+
+	<div class="header inner_banner" id="home">
+		<!--/top-bar-->
+		<div class="top-bar">
+			<div class="header-nav-agileits">
+
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+						<h1><a class="navbar-brand" href="{% url 'index' %}">E-Notification <span>System</span></a></h1>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="top_nav">
+								<li><a href="{% url 'index' %}">Home</a></li>
+								<li><a href="{% url 'about' %}">About</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="Pages" role="button" aria-haspopup="true" aria-expanded="false">Registration Section<span class="fa fa-angle-down"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="{% url 'accounts:StuSignUp' %}">Student</a></li>
+										<li><a href="{% url 'accounts:FacSignUp' %}">Faculty</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="Pages" role="button" aria-haspopup="true" aria-expanded="false">Log-in Section<span class="fa fa-angle-down"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="{% url 'accounts:StuLogIn' %}">Student</a></li>
+										<li><a href="{% url 'accounts:FacLogIn' %}">Faculty</a></li>
+									</ul>
+								</li>
+								<li><a href="{% url 'contact' %}">Contact</a></li>
+							</ul>
+						</nav>
+					</div>
+				</nav>
+
+			</div>
+		</div>
+		<!--// banner-text -->
+	</div>
+
+	<div class="services-breadcrumb-w3ls-agile">
+		<div class="inner_breadcrumb">
+
+			<ul class="short">
+				<li><a href="{% url 'index' %}">Home</a><span>|</span></li>
+				<li>Student Log-In</li>
+			</ul>
+		</div>
+	</div>
+
+    <div class="banner_bottom">
+            <div class="container">
+                <h3 class="headerw3">Student Account</h3>
+                <div class="inner_sec_w3_agileinfo">
+                    <div class="register-form">
+                        <form method="post" action="{% url 'accounts:StuLogIn' %}" role="form">
+        {% csrf_token %}
+        <div class="form-group{% if form.username.errors %} has-error{% endif %}">
+        <h3 class="text-danger">{{ error_message }}</h3>
+              <label for="username">Student ID</label>
+              <input type="text" class="form-control" id="username" name="username">
+              {% for error in form.username.errors %}
+                <label class="control-label">{{ error }}</label>
+              {% endfor %}
+            </div>
+            <div class="form-group{% if form.password.errors %} has-error{% endif %}">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+              {% for error in form.password.errors %}
+                <label class="control-label">{{ error }}</label>
+              {% endfor %}
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-default">Log in</button>
+        </div>
+      </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+{% endblock %}

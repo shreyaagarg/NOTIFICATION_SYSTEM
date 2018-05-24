@@ -1,0 +1,53 @@
+{% extends 'baseMain.html' %}
+
+{% block title %}
+Previous Notifications
+{% endblock %}
+
+{% block main %}
+
+    <br>
+    <div class="container">
+        <div class="col-md-11">
+        <h1>PREVIOUS <strong>NOTIFICATIONS</strong></h1>
+        <br>
+            {% if notifications %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Title</th>
+                        <th>Uploaded By</th>
+                        <th>Date / Time</th>
+                        <th>Course Related to</th>
+                        <th>Instructor Remarks</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    {% for notif in notifications %}
+                        <tr>
+                            <td scope="row">{{ forloop.counter }}</td>
+                            <th>{{ notif.title }}</th>
+                            <th>{{ notif.uploaded_by }}</th>
+                            <th>{{ notif.datetime }}</th>
+                            <th>{{ notif.related_course }}</th>
+                            <th>-</th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+            {% else %}
+                <hr>
+                <div class="well-sm">
+                    <p>No Previous Notifications <span class="glyphicon glyphicon-time"></span> </p>
+                </div>
+                <hr>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

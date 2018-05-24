@@ -1,0 +1,65 @@
+{% extends 'baseMain.html' %}
+
+{% block title %}{{ object.Name }}{% endblock %}
+{% block main %}
+
+    <div class="services-breadcrumb-w3ls-agile">
+		<div class="inner_breadcrumb">
+
+			<ul class="short">
+				<li><a href="{% url 'index' %}">Home</a><span>|</span></li>
+				<li>Student Home</li>
+			</ul>
+		</div>
+	</div>
+
+    <hr>
+    <div class="container target">
+        <div class="row">
+            <div class="col-sm-10">
+                 <h1 class="">{{ object.Name }}</h1>
+                <br>
+                <a class="btn btn-md btn-success" href="{% url 'Notification:show_stu' user.id %}">See Previous Notifications</a>
+                <a class="btn btn-md btn-info">More</a>
+                <br>
+
+            </div>
+
+
+          <div class="col-sm-2"><a href="" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://outreachwebseo.com/wp-content/uploads/2016/07/blank-profile.png"></a>
+            </div>
+        </div>
+      <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <!--left col-->
+                <ul class="list-group">
+                    <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Student ID</strong></span>{{ object.Student_ID }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Date Of Birth</strong></span>{{ object.DOB }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Branch</strong></span>{{ object.get_Branch_display }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Year</strong></span>{{ object.Year_Of_Study }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last Login</strong></span>{{ user.last_login }}</li>
+                </ul>
+            </div>
+
+            <!--/col-3-->
+            <div class="col-sm-8" style="" contenteditable="false">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Address</div>
+                    <div class="panel-body">{{ object.Address }}</div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Contact Number</div>
+                    <div class="panel-body">{{ object.Contact_Number }}</div>
+                </div>
+
+               <div class="panel panel-default">
+                    <div class="panel-heading">Email ID</div>
+                    <div class="panel-body">{{ user.email }}</div>
+               </div>
+            </div>
+    </div>
+    </div>
+
+{% endblock %}

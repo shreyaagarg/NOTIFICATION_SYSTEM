@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+{% load staticfiles %}
+
+
+<head>
+	<title>{% block title %} {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+
+
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{% static 'accounts/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'accounts/css/style.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'accounts/css/font-awesome.css' %}" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
+
+    {% block style %} {% endblock %}
+</head>
+
+<body>
+
+
+    <!-- Main Block -->
+    <div class="top-bar_sub_w3layouts_agile">
+		<h6>STAY CONNECTED <a href="{% url 'about' %}">Contact Us </a></h6>
+        {% block header %}{% endblock %}
+		<div class="clearfix"> </div>
+	</div>
+
+    {% block main %}
+
+    {% endblock %}
+
+	<div class="copy-w3-agileits">
+        <h2 class="footer-logo"><a href="{% url 'index' %}">E-notification <span>System</span></a></h2>
+
+        <div class="col-md-4 social-icons-wthree pull-right">
+                 <ul class="social-network social-circle">
+                    <li><a href="https://www.facebook.com" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://plus.google.com/discover" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://www.linkedin.com/start/join?_l=en" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+	<!-- js -->
+	<script type="text/javascript" src="{% static 'accounts/js/jquery-2.2.3.min.js'%}"></script>
+	<!-- //js -->
+	<!--search-bar-->
+	<script src="{% static 'accounts/js/main.js'%}"></script>
+	<script src="{% static 'accounts/js/responsiveslides.min.js'%}"></script>
+	<script>
+		$(function () {
+			$("#slider4").responsiveSlides({
+				auto: true,
+				pager: true,
+				nav: true,
+				speed: 1000,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+		});
+	</script>
+	<!--//search-bar-->
+	<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/easy-responsive-tabs.css'%} " />
+	<script src="{% static 'accounts/js/easyResponsiveTabs.js'%}"></script>
+	<!--Plug-in Initialisation-->
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			//Vertical Tab
+			$('#parentVerticalTab').easyResponsiveTabs({
+				type: 'vertical', //Types: default, vertical, accordion
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				tabidentify: 'hor_1', // The tab groups identifier
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#nested-tabInfo2');
+					var $name = $('span', $info);
+					$name.text($tab.text());
+					$info.show();
+				}
+			});
+		});
+	</script>
+	<!--/script-->
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="{% static 'accounts/js/move-top.js'%}"></script>
+	<script type="text/javascript" src="{% static 'accounts/js/easing.js'%}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<!-- start-smoth-scrolling -->
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+									var defaults = {
+							  			containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear'
+							 		};
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<script type="text/javascript" src="{% static 'accounts/js/bootstrap-3.1.1.min.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% extends 'baseMain.html' %}
+
+{% block main %}
+
+    <div class="services-breadcrumb-w3ls-agile">
+		<div class="inner_breadcrumb">
+
+			<ul class="short">
+				<li><a href="{% url 'index' %}">Home</a><span>|</span></li>
+                <li><a href="{% url 'Notification:FacHome' request.user.id %}">Faculty Home</a><span>|</span></li>
+				<li>Create</li>
+			</ul>
+		</div>
+	</div>
+
+    <div class="banner_bottom">
+            <div class="container">
+                <h3 class="headerw3">Faculty Account</h3>
+                <div class="inner_sec_w3_agileinfo">
+                    <div class="register-form">
+                        <form method="post" action="{% url 'Notification:create' request.user.id %}" role="form">
+                        {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+{% endblock %}
