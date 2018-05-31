@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    E-Notification System
+{% endblock %}
+
+{% block main %}
+
+
+	<div class="header" id="home">
+		<!--/top-bar-->
+		<div class="top-bar">
+			<div class="header-nav-agileits">
+
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+						<h1><a class="navbar-brand" href="index.html">E-Notification <span>System</span></a></h1>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="top_nav">
+								<li><a href="{% url 'index' %}" class="active">Home</a></li>
+								<li><a href="{% url 'about' %}">About</a></li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                                {% if request.user.is_authenticated %}
+                                    <li><a href="{% url 'accounts:select' %}">Profile</a></li>
+                                    <li><a href="{% url 'accounts:logout' %}"><strong>Log out</strong></a> </li>
+                                {% else %}
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="Pages" role="button" aria-haspopup="true" aria-expanded="false">Registration Section<span class="fa fa-angle-down"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="{% url 'accounts:StuSignUp' %}">Student</a></li>
+										<li><a href="{% url 'accounts:FacSignUp' %}">Faculty</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="Pages" role="button" aria-haspopup="true" aria-expanded="false">Log-in Section<span class="fa fa-angle-down"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="{% url 'accounts:StuLogIn' %}">Student</a></li>
+										<li><a href="{% url 'accounts:FacLogIn' %}">Faculty</a></li>
+									</ul>
+								</li>
+                                {% endif %}
+
+
+							</ul>
+						</nav>
+					</div>
+				</nav>
+
+			</div>
+		</div>
+		<!--// banner-text -->
+	</div>
+
+    <div class="slider">
+        <div class="callbacks_container">
+            <ul class="rslides callbacks callbacks1" id="slider4">
+                <li>
+                    <div class="banner-top">
+                        <div class="banner-info-w3ls-agileinfo">
+                            <h3>Easy and Quick Services.</h3>
+
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-top1">
+                        <div class="banner-info-w3ls-agileinfo">
+                            <h3>Reduce Dependencies</h3>
+
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-top2">
+                        <div class="banner-info-w3ls-agileinfo">
+                            <h3>Connectify Yourself.</h3>
+
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-top3">
+                        <div class="banner-info-w3ls-agileinfo">
+                            <h3>Education is a path, not a destination</h3>
+
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+
+        <!--banner Slider starts Here-->
+    </div>
+
+	<div class="top_spl_courses">
+		<div class="container">
+			<h3 class="headerw3">How it works</h3>
+			<div class="inner_sec_w3_agileinfo">
+				<div class="tabs-grids">
+					<div id="parentVerticalTab">
+						<ul class="resp-tabs-list hor_1">
+							<li>Student Life made easy</li>
+							<li>Information Sharing and Scheduling</li>
+						</ul>
+						<div class="resp-tabs-container hor_1">
+							<div class="text-info">
+								<h4>KNOW YOUR UPDATES</h4>
+								<p>Students will be intimated regarding all the important information viz. assignments due,
+                                    class rescheduling/cancellation, Quiz Schedules, etc through SMS service.</p>
+								<p class="sec"></p>
+								<img src="" alt=" " class="img-responsive" />
+
+							</div>
+							<div class="text-info">
+								<h4>DISPENSE YOUR SCHEDULED MESSAGES</h4>
+								<p>Faculty can put up all the necessary information on or before time</p>
+								<p class="sec"></p>
+								<img src="" alt=" " class="img-responsive" />
+
+							</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

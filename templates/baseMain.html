@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+{% load staticfiles %}
+
+<head>
+	<title>{% block title %} {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+
+
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{% static 'accounts/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'accounts/css/style.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'accounts/css/font-awesome.css' %}" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
+
+    {% block style %} {% endblock %}
+</head>
+
+<body>
+
+
+    <!-- Main Block -->
+    <div class="top-bar_sub_w3layouts_agile">
+		<h6>STAY CONNECTED <a href="{% url 'contact' %}">Contact Us </a></h6>
+        {% block header %}{% endblock %}
+		<div class="clearfix"> </div>
+	</div>
+
+    <!--Header-->
+
+	<div class="header inner_banner" id="home">
+		<!--/top-bar-->
+		<div class="top-bar">
+			<div class="header-nav-agileits">
+
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+						<h1><a class="navbar-brand" href="{% url 'index' %}">E-Notification <span>System</span></a></h1>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="top_nav">
+								<li><a href="{% url 'index' %}">Home</a></li>
+								<li><a href="{% url 'about' %}">About</a></li>
+								<li><a href="{% url 'contact' %}">Contact</a></li>
+                                {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'accounts:select' %}">Profile</a></li>
+                                <li><a href="{% url 'accounts:logout' %}"><strong>Log Out</strong></a></li>
+
+                                {% endif %}
+							</ul>
+						</nav>
+					</div>
+				</nav>
+
+			</div>
+		</div>
+		<!--// banner-text -->
+	</div>
+
+    {% block main %}
+
+    {% endblock %}
+
+
+    <div class="copy-w3-agileits">
+        <h2 class="footer-logo"><a href="index.html">E-notification <span>System</span></a></h2>
+
+        <div class="col-md-4 social-icons-wthree pull-right">
+                 <ul class="social-network social-circle">
+                    <li><a href="https://www.facebook.com" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://plus.google.com/discover" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://www.linkedin.com/start/join?_l=en" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+
+</body>
+
+</html>

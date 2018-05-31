@@ -1,0 +1,78 @@
+{% extends 'baseMain.html' %}
+{% load static %}
+
+{% block title %}
+About Us!
+{% endblock %}
+
+{% block main %}
+
+	<div class="services-breadcrumb-w3ls-agile">
+		<div class="inner_breadcrumb">
+
+			<ul class="short">
+				<li><a href={% url 'index' %}>Home</a><span>|</span></li>
+				<li>About</li>
+			</ul>
+		</div>
+	</div>
+	<!--//short-->
+	<!-- //inner_content -->
+
+	<div class="sec_video">
+		<div class="container">
+			<div class="about-main about1">
+				<div class="col-md-4 about-gd">
+					<div class="about-sub-gd">
+						<h4>Motivation behind the Endeavour</h4>
+						<p>The sole purpose of coming up with this idea of offline information sharing was to not let
+                        any of us miss out on any sort of information which had been prevalent on the online platform</p>
+					</div>
+                    <div class="about-sub-gd">
+						<h4></h4>
+						<p></p>
+					</div>
+				</div>
+				<div class="col-md-4 about-gd1">
+					<img src="{% static 'accounts/images/about.jpg' %}" class="img-responsive" alt="">
+				</div>
+
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- /members -->
+	<div class="banner_bottom">
+		<div class="container">
+			<h3 class="headerw3">Developers Team</h3>
+			<div class="inner_sec_w3_agileinfo">
+				<div class="col-md-3 team_grid_info">
+					<img src="{% static 'accounts/images/madhav.jpg' %}" alt=" " class="img-responsive" />
+					<h3>Madhav Pruthi</h3>
+					<p>CSE 2nd Year</p>
+
+
+				</div>
+				<div class="col-md-3 team_grid_info">
+					<img src="{% static 'accounts/images/shreya.JPG' %}" alt=" " class="img-responsive" />
+					<h3>Shreya</h3>
+					<p>CSE 2nd Year</p>
+				</div>
+
+				<div class="col-md-3 team_grid_info">
+					<img src="{% static 'accounts/images/guneet.jpg' %}" alt=" " class="img-responsive" />
+					<h3>Guneet Bajaj</h3>
+					<p>CSE 2nd Year</p>
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!-- //members -->
+
+
+{% endblock %}
